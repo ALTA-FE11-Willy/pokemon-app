@@ -15,7 +15,9 @@ const MyPokemonList = () => {
   function handleDelPokemon(data: PokemonsType) {
     let dupeDatas: PokemonsType[] = datas.slice();
 
-    const filterData = dupeDatas.filter((item) => item.name !== data.name);
+    const filterData = dupeDatas.filter(
+      (item) => item.sub_name !== data.sub_name
+    );
     localStorage.setItem("MyPokemon", JSON.stringify(filterData));
     fetchData();
   }

@@ -28,13 +28,17 @@ const PokemonDetail = () => {
   function submitHandler() {
     const checkExist = localStorage.getItem("MyPokemon");
     if (checkExist) {
-      let parseData: any = JSON.parse(checkExist);
+      let parseData = JSON.parse(checkExist);
       if (pokemon) {
         pokemon.sub_name = newName;
       }
       parseData.push(pokemon);
 
       localStorage.setItem("MyPokemon", JSON.stringify(parseData));
+      alert("Added to My Pokemon");
+    } else if (pokemon) {
+      pokemon.sub_name = newName;
+      localStorage.setItem("MyPokemon", JSON.stringify([pokemon]));
       alert("Added to My Pokemon");
     }
   }
